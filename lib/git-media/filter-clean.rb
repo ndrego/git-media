@@ -31,7 +31,7 @@ module GitMedia
       # move the tempfile to our media buffer area
       media_file = File.join(media_buffer, hx)
       FileUtils.mv(tempfile.path, media_file)
-      File.chmod(777 - File.umask, media_file)
+      File.chmod(0777 - File.umask, media_file)
 
       elapsed = Time.now - start
       STDERR.puts('Saving media : ' + hx + ' : ' + elapsed.to_s)
